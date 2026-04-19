@@ -19,7 +19,12 @@ export default function Section_4(){
           </h4>
           <div className="flex gap-4 mt-5">
             <Button variant="secondary" onClick={() => router.push('/bingo')}>체험해보기</Button>
-            <Button variant="secondary" onClick={() => window.open('https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987', '_blank')}>iOS 앱 설치하기</Button>
+            <Button onClick={() => window.open('https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987', '_blank')}>
+              <div className="flex items-center justify-center gap-2">
+                <Image src="/images/apple_logo.png" alt="" width={18} height={18} className="pb-1"/>
+                앱스토어 다운로드
+              </div>
+            </Button>
           </div>
         </div>
       </div>

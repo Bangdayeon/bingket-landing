@@ -18,7 +18,12 @@ export default function Section_1() {
             </span>
           </p>
         </h1>
-        <Button onClick={() => window.open('https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987', '_blank')}>iOS 앱 다운로드</Button>
+        <Button onClick={() => window.open('https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987', '_blank')}>
+          <div className="flex items-center justify-center gap-2">
+            <Image src="/images/apple_logo.png" alt="" width={18} height={18} className="pb-1"/>
+            앱스토어 다운로드
+          </div>
+        </Button>
         <Button variant="secondary" onClick={() => router.push('/bingo')}>체험해보기</Button>
       </div>
       <div className="w-60 md:w-80 lg:w-100 aspect-10/17 relative">

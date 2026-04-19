@@ -1,4 +1,5 @@
 import Button from "../commons/Button"
+import Image from "next/image"
 
 export default function Footer() {
   return(
@@ -7,9 +8,12 @@ export default function Footer() {
         <span>빙고로 만드는 투두 리스트 어떤가요?</span>
         <span>어플에서 더 많은 테마와 기능을 즐길 수 있어요!</span>
       </div>
-      <a href="https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987" target="_blank" rel="noopener noreferrer">
-        <Button>iOS 앱 다운로드</Button>
-      </a>
+      <Button onClick={() => window.open('https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987', '_blank')}>
+        <div className="flex items-center justify-center gap-2">
+          <Image src="/images/apple_logo.png" alt="" width={18} height={18} className="pb-1"/>
+          앱스토어 다운로드
+        </div>
+      </Button>
     </footer>
   )
 }
