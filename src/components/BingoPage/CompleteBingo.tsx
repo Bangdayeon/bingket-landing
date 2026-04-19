@@ -197,8 +197,8 @@ export default function CompleteBingo({
               {"새로 만들면 현재 빙고는 사라집니다.\n정말로 새로운 빙고를 만들까요?"}
             </p>
             <div className="flex gap-3 w-full">
-              <Button variant="secondary" className="flex-1" onClick={() => setShowResetModal(false)}>그냥 두기</Button>
-              <Button className="flex-1" onClick={() => { setShowResetModal(false); handleReset(); }}>새로 만들기</Button>
+              <Button variant="secondary" className="w-34" onClick={() => setShowResetModal(false)}>그냥 두기</Button>
+              <Button className="w-34" onClick={() => { setShowResetModal(false); handleReset(); }}>새로 만들기</Button>
             </div>
           </div>
         </div>
