@@ -21,12 +21,14 @@ export default function Header() {
         <Image src="/images/logo_text.png" alt="빙킷 로고 텍스트" width={100} height={24} className="contain-content"/>
       </button>
       <div className="flex items-center gap-4">
-        <Button onClick={() => window.open('https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987', '_blank')}>
-          <div className="flex items-center justify-center gap-2">
-            <Image src="/images/apple_logo.png" alt="" width={18} height={18} className="pb-1"/>
-            앱스토어 다운로드
-          </div>
-        </Button>
+        <div className="hidden md:block">
+          <Button onClick={() => window.open('https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987', '_blank')}>
+            <div className="flex items-center justify-center gap-2">
+              <Image src="/images/apple_logo.png" alt="" width={18} height={18} className="pb-1"/>
+              앱스토어 다운로드
+            </div>
+          </Button>
+        </div>
         <button className="cursor-pointer" onClick={() => setMenuOpen(prev => !prev)}>
           <Image src='/images/menu.png' alt='메뉴' width={24} height={24}/>
         </button>
