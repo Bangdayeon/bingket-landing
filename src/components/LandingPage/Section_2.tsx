@@ -50,7 +50,7 @@ export default function Section_2(){
       <div className="flex flex-col justify-center items-center my-30">
         <h2 className="text-xl md:text-3xl font-bold leading-12 md:leading-14">빙킷이 더 즐겁게 이루도록 도와줄게요!</h2>
         <p className="text-lg md:text-2xl font-semibold text-gray-700">어떻게 도와드릴지 더 자세히 알려줄게요</p>
-        <Image src='/images/mascot_3d.png' alt='' width={500} height={500} />
+        <Image src='/images/mascot_3d.png' alt='빙킷 마스코트 캐릭터' width={500} height={500} />
       </div>
     </section>
   )

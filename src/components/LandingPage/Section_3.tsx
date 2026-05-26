@@ -16,9 +16,9 @@ export default function Section_3(){
         </FadeInUp>
         <div className="mt-10 w-full overflow-x-auto custom-scrollbar">
           <div className="flex gap-2 md:gap-6 px-6 w-max md:mx-auto">
-            <Image src='/images/landing/example_2.jpg' alt='' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
-            <Image src='/images/landing/example_1.jpg' alt='' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
-            <Image src='/images/landing/example_7.jpg' alt='' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
+            <Image src='/images/landing/example_2.jpg' alt='빙킷 앱 화면 - 빙고판 테마 및 목표 작성' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
+            <Image src='/images/landing/example_1.jpg' alt='빙킷 앱 화면 - 빙고판 목표 입력' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
+            <Image src='/images/landing/example_7.jpg' alt='빙킷 앱 화면 - 완성된 빙고판 예시' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
           </div>
         </div>
       </div>
@@ -34,8 +34,8 @@ export default function Section_3(){
         </FadeInUp>
         <div className="mt-10 w-full overflow-x-auto custom-scrollbar">
           <div className="flex gap-2 md:gap-6 px-6 w-max md:mx-auto">
-            <Image src='/images/landing/example_3.jpg' alt='' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
-            <Image src='/images/landing/example_4.jpg' alt='' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
+            <Image src='/images/landing/example_3.jpg' alt='빙킷 앱 화면 - 친구와 빙고 공유' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
+            <Image src='/images/landing/example_4.jpg' alt='빙킷 앱 화면 - 친구와 점수 경쟁' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
           </div>
         </div>
       </div>
@@ -52,8 +52,8 @@ export default function Section_3(){
         </FadeInUp>
         <div className="mt-10 w-full overflow-x-auto custom-scrollbar">
           <div className="flex gap-2 md:gap-6 px-6 w-max md:mx-auto">
-            <Image src='/images/landing/example_6.jpg' alt='' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
-            <Image src='/images/landing/example_5.jpg' alt='' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
+            <Image src='/images/landing/example_6.jpg' alt='빙킷 앱 화면 - 커뮤니티 일상 공유' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
+            <Image src='/images/landing/example_5.jpg' alt='빙킷 앱 화면 - 커뮤니티 빙고 아이디어' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
           </div>
         </div>
       </div>

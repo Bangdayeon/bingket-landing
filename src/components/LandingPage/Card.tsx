@@ -20,7 +20,7 @@ export default function Card({ title, color, img }: Props) {
       className={`${color} rounded-xl w-40 h-40 items-center justify-center flex flex-col gap-4`}
       style={{ animation }}
     >
-      <Image src={img} alt='' width={48} height={48}/>
+      <Image src={img} alt={title} width={48} height={48}/>
       <span className="text-2xl font-semibold">{title}</span>
     </div>
   )

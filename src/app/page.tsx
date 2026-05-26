@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "빙킷 | 빙고로 이루는 투두 & 버킷리스트",
     description:
       "목표를 빙고판으로 만들고, 채워가며 달성하는 새로운 방식. 지금 바로 체험해보세요.",
-    url: "https://your-domain.com",
+    url: "https://bingket-landing.vercel.app",
     siteName: "빙킷",
     images: [
       {
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://your-domain.com",
+    canonical: "https://bingket-landing.vercel.app",
   },
 
   verification: {
