@@ -2,30 +2,48 @@ import type { Metadata } from "next";
 import Landing from "./(route)/Landing";
 
 export const metadata: Metadata = {
-  title: "빙킷 | 빙고로 이루는 투두 & 버킷리스트 앱",
+  title: "빙킷(Bingket) | 빙고로 이루는 투두리스트 & 버킷리스트 목표 달성 앱",
   description:
-    "빙고판으로 목표를 관리하는 새로운 투두 앱, 빙킷. 버킷리스트를 더 재미있게 달성하고 친구와 함께 도전해보세요.",
+    "할 일·버킷리스트를 빙고판으로 채워가는 무료 게이미피케이션 앱. 목표 달성을 게임처럼 즐기고, 친구와 1대1 대결로 동기부여까지. iOS & Android 무료 다운로드.",
 
   keywords: [
     "빙고 투두",
     "버킷리스트 앱",
     "목표 관리 앱",
     "할일 관리",
-    "투두 리스트",
+    "투두리스트 앱",
+    "투두리스트 무료",
     "자기계발 앱",
-    "목표 달성",
+    "자기계발 앱 추천",
+    "목표 달성 앱",
+    "목표달성 앱",
+    "게이미피케이션 앱",
     "빙고 목표",
+    "빙고판 목표",
+    "습관 형성",
+    "습관 트래커",
+    "새해 목표 앱",
+    "버킷리스트 앱 무료",
+    "1대1 대결",
+    "친구와 목표 달성",
     "habit tracker",
+    "bingo todo list",
+    "goal achievement app",
+    "gamification app",
+    "free habit tracker",
+    "bucket list app Korea",
     "모바일 앱",
     "iOS 앱",
+    "Android 앱",
+    "구글 플레이",
     "커뮤니티",
     "라이프스타일",
   ],
 
   openGraph: {
-    title: "빙킷 | 빙고로 이루는 투두 & 버킷리스트",
+    title: "빙킷(Bingket) | 빙고로 이루는 투두리스트 & 버킷리스트",
     description:
-      "목표를 빙고판으로 만들고, 채워가며 달성하는 새로운 방식. 지금 바로 체험해보세요.",
+      "할 일·버킷리스트를 빙고판으로 채워가는 무료 게이미피케이션 앱. 목표 달성을 게임처럼 즐기고, 친구와 1대1 대결로 동기부여까지.",
     url: "https://bingket-landing.vercel.app",
     siteName: "빙킷",
     images: [
@@ -42,9 +60,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "빙킷 | 빙고로 이루는 목표 관리",
+    title: "빙킷(Bingket) | 빙고로 이루는 투두리스트 & 버킷리스트",
     description:
-      "할 일을 빙고처럼 채워가는 새로운 경험. 버킷리스트를 더 재미있게.",
+      "할 일·버킷리스트를 빙고판으로 게임처럼 달성하는 무료 앱. 친구와 1대1 대결, 커뮤니티 공유, 뱃지 수집까지.",
     images: ["/images/og.png"],
   },
 

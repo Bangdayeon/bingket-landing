@@ -14,10 +14,19 @@ export default function Section_1() {
           <span className="bg-linear-to-tr from-[#28C8DE] to-[#6ADE50] bg-clip-text text-transparent">빙</span>고로 이루는<br />버<span className="bg-linear-to-tr from-[#28C8DE] to-[#6ADE50] bg-clip-text text-transparent">킷</span> 리스트,{" "}
           <span className="ml-1.5 bg-linear-to-tr from-[#28C8DE] to-[#6ADE50] bg-clip-text text-transparent">빙킷</span>
         </h1>
-        <Button onClick={() => window.open('https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987', '_blank')}>
+        <p className="text-sm md:text-base text-gray-500 text-center -mt-1">
+          투두리스트 · 버킷리스트 · 자기계발 목표를 빙고로 채워가는 앱
+        </p>
+        <Button variant="dark" onClick={() => window.open('https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987', '_blank')}>
           <div className="flex items-center justify-center gap-2">
-            <Image src="/images/apple_logo.png" alt="" width={18} height={18} className="pb-1"/>
+            <Image src="/images/apple_logo.png" alt="" width={18} height={18} className="pb-1 invert"/>
             앱스토어 다운로드
+          </div>
+        </Button>
+        <Button variant="dark" onClick={() => window.open('https://play.google.com/store/apps/details?id=com.day.bingket.app', '_blank')}>
+          <div className="flex items-center justify-center gap-2">
+            <Image src="/images/google_logo.svg" alt="" width={18} height={18}/>
+            플레이스토어 다운로드
           </div>
         </Button>
         <Button variant="secondary" onClick={() => router.push('/bingo')}>체험해보기</Button>

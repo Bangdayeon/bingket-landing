@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes } from "react"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md'
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'dark'
   loading?: boolean
 }
 
@@ -16,6 +16,7 @@ const sizeClasses = {
 const variantClasses = {
   primary: 'bg-linear-to-tr from-[#54dbed] to-[#8ef275] text-[#0C3803] font-semibold',
   secondary: 'bg-white border border-gray-300 text-gray-700 font-medium',
+  dark: 'bg-black text-white font-semibold',
 }
 
 export default function Button({

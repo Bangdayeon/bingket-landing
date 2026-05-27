@@ -21,11 +21,17 @@ export default function Header() {
         <Image src="/images/logo_text.png" alt="빙킷 로고 텍스트" width={100} height={24} className="contain-content"/>
       </button>
       <div className="flex items-center gap-4">
-        <div className="hidden md:block">
-          <Button onClick={() => window.open('https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987', '_blank')}>
+        <div className="hidden md:flex gap-2">
+          <Button variant="dark" onClick={() => window.open('https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987', '_blank')}>
             <div className="flex items-center justify-center gap-2">
-              <Image src="/images/apple_logo.png" alt="" width={18} height={18} className="pb-1"/>
+              <Image src="/images/apple_logo.png" alt="" width={18} height={18} className="pb-1 invert"/>
               앱스토어 다운로드
+            </div>
+          </Button>
+          <Button variant="dark" onClick={() => window.open('https://play.google.com/store/apps/details?id=com.day.bingket.app', '_blank')}>
+            <div className="flex items-center justify-center gap-2">
+              <Image src="/images/google_logo.svg" alt="" width={18} height={18}/>
+              플레이스토어 다운로드
             </div>
           </Button>
         </div>

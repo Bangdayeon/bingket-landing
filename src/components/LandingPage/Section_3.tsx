@@ -33,7 +33,7 @@ export default function Section_3(){
         </h3>
         </FadeInUp>
         <div className="mt-10 w-full overflow-x-auto custom-scrollbar">
-          <div className="flex gap-2 md:gap-6 px-6 w-max md:mx-auto">
+          <div className="flex gap-2 md:gap-6 px-6 w-max mx-auto">
             <Image src='/images/landing/example_3.jpg' alt='빙킷 앱 화면 - 친구와 빙고 공유' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
             <Image src='/images/landing/example_4.jpg' alt='빙킷 앱 화면 - 친구와 점수 경쟁' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
           </div>
@@ -51,11 +51,40 @@ export default function Section_3(){
         </h3>
         </FadeInUp>
         <div className="mt-10 w-full overflow-x-auto custom-scrollbar">
-          <div className="flex gap-2 md:gap-6 px-6 w-max md:mx-auto">
+          <div className="flex gap-2 md:gap-6 px-6 w-max mx-auto">
             <Image src='/images/landing/example_6.jpg' alt='빙킷 앱 화면 - 커뮤니티 일상 공유' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
             <Image src='/images/landing/example_5.jpg' alt='빙킷 앱 화면 - 커뮤니티 빙고 아이디어' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
           </div>
         </div>
+      </div>
+      <div className="flex flex-col items-center w-full">
+        <FadeInUp>
+        <h3 className="gap-2 flex flex-col items-center">
+          <p className="text-2xl md:text-3xl font-bold md:leading-14 flex flex-col md:flex-row">
+            <span>4. 친구와 빙고 1대1 대결로</span>
+            <span className="ml-6 md:ml-2">동기부여를 극대화해요</span>
+          </p>
+          <p className="md:text-2xl font-semibold text-gray-700">내기를 걸고 더 많은 빙고를 달성한 사람이 이겨요</p>
+        </h3>
+        </FadeInUp>
+        <div className="mt-10 w-full overflow-x-auto custom-scrollbar">
+          <div className="flex gap-2 md:gap-6 px-6 w-max mx-auto">
+            <Image src='/images/landing/example_3.jpg' alt='빙킷 앱 화면 - 친구와 빙고 대결 신청' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
+            <Image src='/images/landing/example_4.jpg' alt='빙킷 앱 화면 - 빙고 대결 점수 경쟁' width={200} height={500} className="object-contain rounded-2xl shrink-0" unoptimized />
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col items-center w-full">
+        <FadeInUp>
+        <h3 className="gap-2 flex flex-col items-center">
+          <p className="text-2xl md:text-3xl font-bold md:leading-14 flex flex-col md:flex-row">
+            <span>5. 목표를 이룰수록 쌓이는 뱃지로</span>
+            <span className="ml-6 md:ml-2">나의 성장을 기록해요</span>
+          </p>
+          <p className="md:text-2xl font-semibold text-gray-700">빙고 달성, 대결, 커뮤니티 활동마다 뱃지가 자동으로 지급돼요</p>
+        </h3>
+        </FadeInUp>
       </div>
     </section>
   )
