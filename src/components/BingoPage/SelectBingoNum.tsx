@@ -1,5 +1,5 @@
 'use client';
-import { BINGO_NUM } from "@/src/types/bingo";
+import { BINGO_NUM } from "@/types/bingo";
 
 interface Props {
   onSelect: (num: BINGO_NUM) => void;

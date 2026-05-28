@@ -1,6 +1,6 @@
 'use client';
 
-import { BINGO_NUM, BINGO_THEME } from "@/src/types/bingo";
+import { BINGO_NUM, BINGO_THEME } from "@/types/bingo";
 import { useState } from "react";
 import Image from "next/image";
 import Button from "../commons/Button";

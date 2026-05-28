@@ -1,13 +1,13 @@
 'use client';
 
-import SelectBingoNum from "@/src/components/BingoPage/SelectBingoNum";
-import SelectTheme from "@/src/components/BingoPage/SelectTheme";
-import WriteBingo from "@/src/components/BingoPage/WriteBingo";
+import SelectBingoNum from "@/components/BingoPage/SelectBingoNum";
+import SelectTheme from "@/components/BingoPage/SelectTheme";
+import WriteBingo from "@/components/BingoPage/WriteBingo";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import CompleteBingo from "@/src/components/BingoPage/CompleteBingo";
-import { BINGO_NUM, BINGO_THEME, BingoData } from "@/src/types/bingo";
+import CompleteBingo from "@/components/BingoPage/CompleteBingo";
+import { BINGO_NUM, BINGO_THEME, BingoData } from "@/types/bingo";
 
 type STEP = 'selectNum' | 'selectTheme' | 'write';
 
