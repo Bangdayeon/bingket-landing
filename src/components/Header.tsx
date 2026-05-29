@@ -65,6 +65,13 @@ export default function Header() {
         >
           오늘의 빙고 만들기
         </button>
+        <div className="border-t border-gray-100"/>
+        <button
+          className="w-full text-left px-5 py-4 text-sm font-medium text-gray-800 hover:bg-gray-50 transition-colors cursor-pointer"
+          onClick={() => handleSelect('/lounge')}
+        >
+          커뮤니티
+        </button>
       </div>
     </div>
   )
