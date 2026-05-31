@@ -66,7 +66,7 @@ export const PostCard = memo(function PostCard({ post, priority = false }: PostC
       {/* 미디어 (빙고 우선, 없으면 이미지) */}
       {hasBingo && post.bingo ? (
         <div className="mt-3">
-          <BingoGrid cells={post.bingo.cells} grid={post.bingo.grid} title={post.bingo.title} compact />
+          <BingoGrid cells={post.bingo.cells} grid={post.bingo.grid} title={post.bingo.title} theme={post.bingo.theme} compact />
         </div>
       ) : firstImageUrl ? (
         <div className="mt-3 relative w-full aspect-video rounded-lg overflow-hidden bg-gray-100">
