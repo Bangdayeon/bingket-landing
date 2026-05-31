@@ -6,6 +6,7 @@ import { fetchPost, fetchComments, parseBlocks } from '@/lib/community';
 import { CategoryBadge } from '@/components/lounge/CategoryBadge';
 import { BingoGrid } from '@/components/lounge/BingoGrid';
 import { Avatar } from '@/components/lounge/Avatar';
+import { LikeButton } from '@/components/lounge/LikeButton';
 import type { Comment, CommentReply } from '@/types/community';
 
 const BASE_URL = 'https://bingket-landing.vercel.app';
@@ -312,12 +313,7 @@ export default async function PostDetailPage({ params }: Props) {
 
               {/* 좋아요 / 댓글 수 */}
               <div className="flex items-center gap-4 mt-4 pb-4 border-b border-gray-100">
-                <div className="flex items-center gap-1 text-[#929898]" aria-label={`좋아요 ${post.likeCount}개`}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                  </svg>
-                  <span className="text-sm">{post.likeCount}</span>
-                </div>
+                <LikeButton likeCount={post.likeCount} />
                 <div className="flex items-center gap-1 text-[#929898]" aria-label={`댓글 ${post.commentCount}개`}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>

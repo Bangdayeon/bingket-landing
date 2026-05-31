@@ -145,22 +145,6 @@ export function LoungeClient() {
       {!loading && !hasMore && posts.length > 0 && (
         <p className="text-center text-xs text-[#B4BBBB] py-6">모든 게시글을 불러왔어요</p>
       )}
-
-      {/* 앱 다운로드 CTA */}
-      <div className="mx-5 my-6 p-4 rounded-2xl bg-linear-to-tr from-[#E8FAFE] to-[#F2FDE8] border border-[#D2F5F5]">
-        <p className="text-sm font-semibold text-[#181C1C] mb-1">직접 참여하고 싶다면?</p>
-        <p className="text-xs text-[#4C5252] mb-3">앱에서 게시글을 작성하고 댓글로 소통해보세요</p>
-        <div className="flex gap-2">
-          <a href="https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987" target="_blank" rel="noopener noreferrer"
-            className="flex-1 h-9 rounded-lg bg-black text-white text-xs font-medium flex items-center justify-center hover:opacity-80 transition-opacity">
-            App Store
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.day.bingket.app" target="_blank" rel="noopener noreferrer"
-            className="flex-1 h-9 rounded-lg bg-black text-white text-xs font-medium flex items-center justify-center hover:opacity-80 transition-opacity">
-            Google Play
-          </a>
-        </div>
-      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "../components/Header";
 import Script from "next/script";
 import { ToastContainer } from "@/components/ToastContainer";
+import { AppInstallModal } from "@/components/AppInstallModal";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bingket-landing.vercel.app"),
@@ -154,6 +155,7 @@ export default function RootLayout({
           <Header />
         </header>
         <ToastContainer />
+        <AppInstallModal />
         <main className="flex flex-1 w-full max-w-6xl">{children}</main>
       </body>
     </html>
