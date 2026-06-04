@@ -5,6 +5,7 @@ import Section_2 from "@/components/LandingPage/Section_2";
 import Section_3 from "@/components/LandingPage/Section_3";
 import Section_4 from "@/components/LandingPage/Section_4";
 import Section_HowTo from "@/components/LandingPage/Section_HowTo";
+import Section_Community from "@/components/LandingPage/Section_Community";
 import Section_FAQ from "@/components/LandingPage/Section_FAQ";
 import Footer from "@/components/LandingPage/Footer";
 
@@ -15,6 +16,7 @@ export default function Landing() {
       <Section_2/>
       <Section_3/>
       <Section_HowTo/>
+      <Section_Community/>
       <Section_4/>
       <Section_FAQ/>
       <Footer />

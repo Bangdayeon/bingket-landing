@@ -6,6 +6,7 @@ import { fetchPost, fetchComments, parseBlocks } from '@/lib/community';
 import { CategoryBadge } from '@/components/lounge/CategoryBadge';
 import { BingoGrid } from '@/components/lounge/BingoGrid';
 import { Avatar } from '@/components/lounge/Avatar';
+import { LikeButton } from '@/components/lounge/LikeButton';
 import type { Comment, CommentReply } from '@/types/community';
 
 const BASE_URL = 'https://bingket-landing.vercel.app';
@@ -312,12 +313,7 @@ export default async function PostDetailPage({ params }: Props) {
 
               {/* 좋아요 / 댓글 수 */}
               <div className="flex items-center gap-4 mt-4 pb-4 border-b border-gray-100">
-                <div className="flex items-center gap-1 text-[#929898]" aria-label={`좋아요 ${post.likeCount}개`}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                  </svg>
-                  <span className="text-sm">{post.likeCount}</span>
-                </div>
+                <LikeButton likeCount={post.likeCount} />
                 <div className="flex items-center gap-1 text-[#929898]" aria-label={`댓글 ${post.commentCount}개`}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -347,12 +343,14 @@ export default async function PostDetailPage({ params }: Props) {
             <p className="text-xs text-[#4C5252] mb-3">앱에서 직접 참여하고 소통해보세요</p>
             <div className="flex gap-2">
               <a href="https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987" target="_blank" rel="noopener noreferrer"
-                className="flex-1 h-9 rounded-lg bg-black text-white text-xs font-medium flex items-center justify-center hover:opacity-80 transition-opacity">
-                App Store
+                className="flex-1 h-9 rounded-lg bg-white border border-gray-300 text-gray-800 text-xs font-medium flex items-center justify-center gap-1.5 hover:border-gray-400 transition-colors">
+                <img src="/images/apple_logo.png" alt="" width={14} height={14} className="pb-0.5"/>
+                앱스토어
               </a>
               <a href="https://play.google.com/store/apps/details?id=com.day.bingket.app" target="_blank" rel="noopener noreferrer"
-                className="flex-1 h-9 rounded-lg bg-black text-white text-xs font-medium flex items-center justify-center hover:opacity-80 transition-opacity">
-                Google Play
+                className="flex-1 h-9 rounded-lg bg-white border border-gray-300 text-gray-800 text-xs font-medium flex items-center justify-center gap-1.5 hover:border-gray-400 transition-colors">
+                <img src="/images/google_logo.svg" alt="" width={14} height={14}/>
+                플레이스토어
               </a>
             </div>
           </div>
