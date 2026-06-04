@@ -278,7 +278,7 @@ export default async function PostDetailPage({ params }: Props) {
                         if (block.type === 'bingo' && bingoData) {
                           return (
                             <div key={i} className="mt-3">
-                              <BingoGrid cells={bingoData.cells} grid={bingoData.grid} title={bingoData.title} />
+                              <BingoGrid cells={bingoData.cells} grid={bingoData.grid} title={bingoData.title} theme={bingoData.theme} />
                             </div>
                           );
                         }
@@ -291,7 +291,7 @@ export default async function PostDetailPage({ params }: Props) {
                     <p className="mt-3 text-sm text-[#4C5252] leading-relaxed whitespace-pre-wrap">{post.body}</p>
                     {bingoData && (
                       <div className="mt-3">
-                        <BingoGrid cells={bingoData.cells} grid={bingoData.grid} title={bingoData.title} />
+                        <BingoGrid cells={bingoData.cells} grid={bingoData.grid} title={bingoData.title} theme={bingoData.theme} />
                       </div>
                     )}
                     {post.imageUrls?.map((url, i) => (
