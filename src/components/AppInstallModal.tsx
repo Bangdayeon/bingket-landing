@@ -57,17 +57,19 @@ export function AppInstallModal() {
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="h-10 rounded-lg bg-black text-white text-sm font-medium flex items-center justify-center hover:opacity-80 transition-opacity"
+            className="h-10 rounded-lg bg-white border border-gray-300 text-gray-800 text-sm font-medium flex items-center justify-center gap-2 hover:border-gray-400 transition-colors"
           >
-            App Store에서 받기
+            <img src="/images/apple_logo.png" alt="" width={16} height={16} className="pb-0.5" />
+            앱스토어에서 받기
           </a>
           <a
             href={PLAY_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="h-10 rounded-lg bg-black text-white text-sm font-medium flex items-center justify-center hover:opacity-80 transition-opacity"
+            className="h-10 rounded-lg bg-white border border-gray-300 text-gray-800 text-sm font-medium flex items-center justify-center gap-2 hover:border-gray-400 transition-colors"
           >
-            Google Play에서 받기
+            <img src="/images/google_logo.svg" alt="" width={16} height={16} />
+            플레이스토어에서 받기
           </a>
         </div>
       </div>
