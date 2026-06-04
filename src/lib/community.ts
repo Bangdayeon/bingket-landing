@@ -42,7 +42,7 @@ type RawBoard = {
 type RawUser = { display_name: string; avatar_url: string | null } | null;
 type RawSnapshot = { title?: string; cells: string[]; grid: string; theme: string } | null;
 
-function mapPost(p: {
+export function mapPost(p: {
   id: string;
   title: string;
   content: string;
