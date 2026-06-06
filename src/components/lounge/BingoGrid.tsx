@@ -20,7 +20,7 @@ interface BingoGridProps {
 
 // 메인 앱 BingoPreview의 TITLE_STYLE 값과 동일 (sm: 카드, md: 상세)
 const TITLE_STYLE = {
-  sm: { top: 30, left: 30, right: 30, fontSize: 12 },
+  sm: { top: 30, left: 30, right: 30, fontSize: 14 },
   md: { top: 48, left: 48, right: 48, fontSize: 18 },
 } as const;
 
@@ -86,7 +86,7 @@ export function BingoGrid({ cells, grid, title, theme, compact = false }: BingoG
                   height: `${(cfg.cellH / FIGMA_H) * 100}%`,
                 }}
               >
-                <span className={`text-center leading-tight text-[#181C1C] line-clamp-2 ${compact ? 'text-[9px]' : 'text-xs'}`}>
+                <span className={`text-center leading-tight text-[#181C1C] line-clamp-2 ${compact ? 'text-[11px]' : 'text-xs'}`}>
                   {cells[i] ?? ''}
                 </span>
               </div>
@@ -102,7 +102,7 @@ export function BingoGrid({ cells, grid, title, theme, compact = false }: BingoG
   return (
     <div className={`w-full rounded-xl overflow-hidden border border-[#D2D6D6] bg-[#F7FFFE] ${compact ? 'p-2' : 'p-3'}`}>
       {title && (
-        <p className={`font-semibold text-center text-[#181C1C] mb-2 truncate ${compact ? 'text-xs' : 'text-sm'}`}>
+        <p className={`font-semibold text-center text-[#181C1C] mb-2 truncate ${compact ? 'text-[14px]' : 'text-sm'}`}>
           {title}
         </p>
       )}
@@ -112,7 +112,7 @@ export function BingoGrid({ cells, grid, title, theme, compact = false }: BingoG
             key={i}
             className={`aspect-square rounded-md border border-[#D2D6D6] bg-white flex items-center justify-center ${compact ? 'p-1' : 'p-1.5'}`}
           >
-            <span className={`text-center leading-tight text-[#181C1C] line-clamp-2 ${compact ? 'text-[9px]' : 'text-[10px]'}`}>
+            <span className={`text-center leading-tight text-[#181C1C] line-clamp-2 ${compact ? 'text-[11px]' : 'text-[10px]'}`}>
               {cell}
             </span>
           </div>
