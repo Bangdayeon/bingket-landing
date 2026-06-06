@@ -58,7 +58,7 @@ export function BingoGrid({ cells, grid, title, theme, compact = false }: BingoG
 
         {title && (
           <p
-            className="absolute font-semibold line-clamp-2 leading-tight px-1 pt-1"
+            className="absolute font-semibold line-clamp-2 leading-tight px-2 pt-2"
             style={{
               top: `${(ts.top / FIGMA_H) * 100}%`,
               left: `${(ts.left / FIGMA_W) * 100}%`,
@@ -102,7 +102,7 @@ export function BingoGrid({ cells, grid, title, theme, compact = false }: BingoG
   return (
     <div className={`w-full rounded-xl overflow-hidden border border-[#D2D6D6] bg-[#F7FFFE] ${compact ? 'p-2' : 'p-3'}`}>
       {title && (
-        <p className={`font-semibold text-center text-[#181C1C] mb-2 truncate ${compact ? 'text-[20px] px-2 pt-1.5 pb-0.5' : 'text-sm'}`}>
+        <p className={`font-semibold text-center text-[#181C1C] mb-2 truncate ${compact ? 'text-[20px] px-3 pt-[10px] pb-0.5' : 'text-sm'}`}>
           {title}
         </p>
       )}
