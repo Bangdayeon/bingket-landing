@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { LoungeClient } from './LoungeClient';
 import LoungeHeader from '@/components/LoungeHeader';
 
@@ -119,22 +118,6 @@ export default function LoungePage() {
           <header className="px-5 pt-5 pb-3 border-b border-gray-100">
             <h1 className="text-xl font-bold text-[#181C1C]">라운지</h1>
             <p className="text-sm text-[#929898] mt-0.5">빙킷 유저들의 이야기를 구경해보세요</p>
-            {/* 카테고리 링크: 크롤러가 내부 링크 구조 파악 + 필터 UX */}
-            <nav aria-label="카테고리" className="flex gap-2 mt-3 flex-wrap">
-              {[
-                { label: '빙고판', href: '/lounge?category=bingo_board' },
-                { label: '빙고 달성', href: '/lounge?category=bingo_achieve' },
-                { label: '자유게시판', href: '/lounge?category=free' },
-              ].map(({ label, href }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="text-xs px-3 py-1 rounded-full border border-gray-200 text-[#4C5252] hover:border-[#28C8DE] hover:text-[#028CA0] transition-colors"
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
           </header>
 
           <Suspense>
