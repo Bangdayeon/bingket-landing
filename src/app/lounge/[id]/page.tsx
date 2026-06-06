@@ -19,11 +19,24 @@ interface Props {
 }
 
 // 게시글 본문에서 첫 번째 텍스트 추출 (meta description용)
-function extractDescription(body: string, author: string): string {
+function extractDescription(
+  body: string,
+  author: string,
+  bingo?: { title?: string; cells: string[] },
+): string {
   const blocks = parseBlocks(body);
   const textBlock = blocks?.find((b): b is Extract<typeof b, { type: 'text' }> => b.type === 'text' && !!b.value.trim());
   const firstText = textBlock?.value ?? body;
   const clean = firstText.replace(/\n+/g, ' ').trim();
+
+  if (bingo?.cells.length) {
+    const base = clean.length > 60 ? `${clean.slice(0, 60)}… ` : clean ? `${clean} ` : '';
+    const label = bingo.title ? `빙고판 "${bingo.title}": ` : '빙고판: ';
+    const preview = bingo.cells.slice(0, 4).join(' · ') + (bingo.cells.length > 4 ? ' 외' : '');
+    const full = `${base}${label}${preview}`;
+    return full.length > 160 ? `${full.slice(0, 160)}…` : full;
+  }
+
   const truncated = clean.length > 120 ? `${clean.slice(0, 120)}…` : clean;
   return truncated || `${author}이 빙킷 라운지에 공유한 게시글입니다.`;
 }
@@ -33,15 +46,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await fetchPost(id);
   if (!post) return { title: '빙킷 라운지' };
 
-  const description = extractDescription(post.body, post.author);
+  const description = extractDescription(post.body, post.author, post.bingo);
   const url = `${BASE_URL}/lounge/${id}`;
   const ogImage = post.imageUrls?.[0]
     ? { url: post.imageUrls[0], width: 1200, height: 630, alt: post.title }
     : { url: `${BASE_URL}/images/og_default.png`, width: 1200, height: 630, alt: '빙킷 라운지' };
 
+  const keywords = [
+    '빙고', '빙킷', '목표달성', '자기계발', '버킷리스트', '투두리스트',
+    ...(post.bingo?.title ? [post.bingo.title] : []),
+    ...(post.bingo?.cells ?? []),
+  ];
+
   return {
     title: `${post.title} | 빙킷 라운지`,
     description,
+    keywords,
     alternates: { canonical: url },
     openGraph: {
       type: 'article',
@@ -104,10 +124,10 @@ function CommentItemWeb({ comment, postAuthorId }: { comment: Comment; postAutho
   }
 
   return (
-    <div className="pb-1 border-b border-gray-200 px-5">
+    <div className="pb-1 border-b border-gray-200 px-5" itemScope itemType="https://schema.org/Comment">
       <div className="flex items-center gap-2 py-2">
         <Avatar avatarUrl={comment.avatarUrl} author={comment.author} seed={comment.isAnonymous ? comment.id : undefined} size={22} />
-        <span className="text-sm font-semibold text-[#181C1C]">{comment.author}</span>
+        <span className="text-sm font-semibold text-[#181C1C]" itemProp="author">{comment.author}</span>
         {isPostAuthor && (
           <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#54DBED] text-[#023540]">작성자</span>
         )}
@@ -118,8 +138,8 @@ function CommentItemWeb({ comment, postAuthorId }: { comment: Comment; postAutho
           <span className="text-xs">{comment.likeCount}</span>
         </div>
       </div>
-      <p className="text-sm text-[#181C1C] leading-relaxed">{comment.body}</p>
-      <time dateTime={comment.createdAt} className="block text-xs text-[#929898] mt-1 text-right pb-2">{comment.createdAt}</time>
+      <p className="text-sm text-[#181C1C] leading-relaxed" itemProp="text">{comment.body}</p>
+      <time dateTime={comment.createdAt} itemProp="dateCreated" className="block text-xs text-[#929898] mt-1 text-right pb-2">{comment.createdAt}</time>
       {comment.replies?.map((r) => (
         <ReplyItemWeb key={r.id} reply={r} postAuthorId={postAuthorId} />
       ))}
@@ -137,9 +157,18 @@ export default async function PostDetailPage({ params }: Props) {
   const bingoData = post.bingo;
   const textBlocks = blocks?.filter((b): b is Extract<typeof b, { type: 'text' }> => b.type === 'text') ?? [];
   const mediaBlocks = blocks?.filter((b) => b.type !== 'text') ?? [];
-  const description = extractDescription(post.body, post.author);
+  const description = extractDescription(post.body, post.author, bingoData);
   const postUrl = `${BASE_URL}/lounge/${id}`;
   const isoDate = new Date(post.createdAt).toISOString();
+
+  const categoryLabel = post.category === 'bingo_board' ? '빙고판' : post.category === 'bingo_achieve' ? '빙고 달성' : '자유게시판';
+  const fullText = [
+    description,
+    ...(bingoData?.cells.length
+      ? [`${bingoData.title ? `"${bingoData.title}" 빙고판` : '빙고판'}: ${bingoData.cells.join(', ')}`]
+      : []),
+  ].join(' | ');
+  const visibleComments = comments.filter((c) => !c.isDeleted && c.body);
 
   // JSON-LD: SocialMediaPosting + BreadcrumbList
   const jsonLd = [
@@ -147,8 +176,16 @@ export default async function PostDetailPage({ params }: Props) {
       '@context': 'https://schema.org',
       '@type': 'SocialMediaPosting',
       '@id': postUrl,
+      inLanguage: 'ko',
       headline: post.title,
-      text: description,
+      text: fullText,
+      keywords: [
+        '빙고', '빙킷', '목표달성', '자기계발', '버킷리스트', '투두리스트',
+        categoryLabel,
+        ...(bingoData?.title ? [bingoData.title] : []),
+        ...(bingoData?.cells ?? []),
+      ].join(', '),
+      articleSection: categoryLabel,
       url: postUrl,
       datePublished: isoDate,
       author: {
@@ -164,6 +201,27 @@ export default async function PostDetailPage({ params }: Props) {
       mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
       ...(post.imageUrls?.[0] && {
         image: { '@type': 'ImageObject', url: post.imageUrls[0] },
+      }),
+      ...(bingoData && {
+        about: {
+          '@type': 'ItemList',
+          name: bingoData.title ?? post.title,
+          description: `빙킷 앱의 빙고판 목표 리스트 (${bingoData.grid} 크기, ${bingoData.cells.length}칸)`,
+          numberOfItems: bingoData.cells.length,
+          itemListElement: bingoData.cells.map((cell, idx) => ({
+            '@type': 'ListItem',
+            position: idx + 1,
+            name: cell,
+          })),
+        },
+      }),
+      ...(visibleComments.length > 0 && {
+        comment: visibleComments.map((c) => ({
+          '@type': 'Comment',
+          text: c.body,
+          author: { '@type': 'Person', name: c.author },
+          dateCreated: c.createdAt,
+        })),
       }),
       interactionStatistic: [
         {
@@ -265,9 +323,11 @@ export default async function PostDetailPage({ params }: Props) {
                         }
                         if (block.type === 'bingo' && bingoData) {
                           return (
-                            <div key={i} className="mt-3">
+                            <figure key={i} className="mt-3" itemProp="about" itemScope itemType="https://schema.org/ItemList">
+                              {bingoData.title && <meta itemProp="name" content={bingoData.title} />}
+                              <meta itemProp="numberOfItems" content={String(bingoData.cells.length)} />
                               <BingoGrid cells={bingoData.cells} grid={bingoData.grid} title={bingoData.title} theme={bingoData.theme} />
-                            </div>
+                            </figure>
                           );
                         }
                         return null;
@@ -278,9 +338,11 @@ export default async function PostDetailPage({ params }: Props) {
                   <>
                     <p className="mt-3 text-sm text-[#4C5252] leading-relaxed whitespace-pre-wrap">{post.body}</p>
                     {bingoData && (
-                      <div className="mt-3">
+                      <figure className="mt-3" itemProp="about" itemScope itemType="https://schema.org/ItemList">
+                        {bingoData.title && <meta itemProp="name" content={bingoData.title} />}
+                        <meta itemProp="numberOfItems" content={String(bingoData.cells.length)} />
                         <BingoGrid cells={bingoData.cells} grid={bingoData.grid} title={bingoData.title} theme={bingoData.theme} />
-                      </div>
+                      </figure>
                     )}
                     {post.imageUrls?.map((url, i) => (
                       <figure key={i} className="mt-3">
