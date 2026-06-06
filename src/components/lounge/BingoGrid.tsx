@@ -20,7 +20,7 @@ interface BingoGridProps {
 
 // 메인 앱 BingoPreview의 TITLE_STYLE 값과 동일 (sm: 카드, md: 상세)
 const TITLE_STYLE = {
-  sm: { top: 30, left: 30, right: 30, fontSize: 14 },
+  sm: { top: 30, left: 30, right: 30, fontSize: 18 },
   md: { top: 48, left: 48, right: 48, fontSize: 18 },
 } as const;
 
@@ -102,7 +102,7 @@ export function BingoGrid({ cells, grid, title, theme, compact = false }: BingoG
   return (
     <div className={`w-full rounded-xl overflow-hidden border border-[#D2D6D6] bg-[#F7FFFE] ${compact ? 'p-2' : 'p-3'}`}>
       {title && (
-        <p className={`font-semibold text-center text-[#181C1C] mb-2 truncate ${compact ? 'text-[14px]' : 'text-sm'}`}>
+        <p className={`font-semibold text-center text-[#181C1C] mb-2 truncate ${compact ? 'text-[18px] px-1 py-0.5' : 'text-sm'}`}>
           {title}
         </p>
       )}
