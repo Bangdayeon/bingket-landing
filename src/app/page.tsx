@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Landing from "./(route)/Landing";
+import { faqs } from "@/components/LandingPage/Section_FAQ";
 
 export const metadata: Metadata = {
   title: "빙킷(Bingket) | 빙고로 이루는 투두리스트 & 버킷리스트 목표 달성 앱",
@@ -83,6 +84,40 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: '빙킷',
+    operatingSystem: 'iOS, Android',
+    applicationCategory: 'LifestyleApplication',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
+    url: 'https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987',
+    downloadUrl: 'https://apps.apple.com/kr/app/%EB%B9%99%ED%82%B7-bingket/id6761634987',
+    description: '할 일·버킷리스트를 빙고판으로 채워가는 무료 게이미피케이션 앱. 목표 달성을 게임처럼 즐기고, 친구와 1대1 대결로 동기부여까지.',
+  },
+];
+
 export default function Home() {
-  return <Landing />;
+  return (
+    <>
+      {jsonLd.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+      <Landing />
+    </>
+  );
 }

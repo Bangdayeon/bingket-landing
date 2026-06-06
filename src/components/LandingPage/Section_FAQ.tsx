@@ -1,6 +1,4 @@
-'use client'
-
-import { useState } from "react"
+import FAQAccordion from "./FAQAccordion"
 
 const faqs = [
   {
@@ -29,38 +27,13 @@ const faqs = [
   },
 ]
 
-export default function Section_FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
+export { faqs }
 
+export default function Section_FAQ() {
   return (
     <section className="w-full max-w-3xl mx-auto px-6 py-20">
       <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">자주 묻는 질문</h2>
-      <dl className="flex flex-col divide-y divide-gray-100">
-        {faqs.map(({ q, a }, i) => (
-          <div key={q}>
-            <dt>
-              <button
-                className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer"
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                aria-expanded={openIndex === i}
-              >
-                <span className="text-base md:text-lg font-semibold">{q}</span>
-                <svg
-                  width="20" height="20" viewBox="0 0 20 20" fill="none"
-                  className={`shrink-0 transition-transform duration-200 ${openIndex === i ? 'rotate-180' : ''}`}
-                >
-                  <path d="M5 7.5l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </dt>
-            <dd
-              className={`overflow-hidden transition-all duration-200 ease-in-out ${openIndex === i ? 'max-h-96 pb-5' : 'max-h-0'}`}
-            >
-              <p className="text-gray-600 leading-relaxed">{a}</p>
-            </dd>
-          </div>
-        ))}
-      </dl>
+      <FAQAccordion faqs={faqs} />
     </section>
   )
 }

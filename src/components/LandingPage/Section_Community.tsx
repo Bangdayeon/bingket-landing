@@ -1,8 +1,5 @@
-'use client'
-
-import { useRouter } from "next/navigation"
+import Link from "next/link"
 import FadeInUp from "../commons/FadeInUp"
-import Button from "../commons/Button"
 
 const themes = [
   {
@@ -18,8 +15,6 @@ const themes = [
 ]
 
 export default function Section_Community() {
-  const router = useRouter()
-
   return (
     <section className="w-full bg-white py-24 flex flex-col items-center px-6">
       <FadeInUp>
@@ -38,9 +33,12 @@ export default function Section_Community() {
         ))}
       </div>
       <FadeInUp>
-        <Button variant="dark" onClick={() => router.push('/lounge')}>
+        <Link
+          href="/lounge"
+          className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all h-11 px-6 rounded-xl bg-black text-white font-semibold hover:shadow-md active:scale-95"
+        >
           커뮤니티 둘러보기
-        </Button>
+        </Link>
       </FadeInUp>
     </section>
   )

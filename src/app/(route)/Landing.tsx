@@ -1,5 +1,3 @@
-'use client';
-
 import Section_1 from "@/components/LandingPage/Section_1";
 import Section_2 from "@/components/LandingPage/Section_2";
 import Section_3 from "@/components/LandingPage/Section_3";
