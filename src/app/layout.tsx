@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "../components/Header";
+import GlobalHeader from "../components/GlobalHeader";
 import Script from "next/script";
 import { ToastContainer } from "@/components/ToastContainer";
 import { AppInstallModal } from "@/components/AppInstallModal";
@@ -151,9 +151,7 @@ export default function RootLayout({
           gtag('js', new Date());
           gtag('config', 'G-C1VD72NR9M');
         `}</Script>
-        <header className="sticky top-0 z-30 w-full flex justify-center bg-white/60 backdrop-blur-md border-b border-white/40">
-          <Header />
-        </header>
+        <GlobalHeader />
         <ToastContainer />
         <AppInstallModal />
         <main className="flex flex-1 w-full max-w-6xl">{children}</main>

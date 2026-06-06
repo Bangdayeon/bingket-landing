@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+import LoungeHeader from '@/components/LoungeHeader';
 import { fetchPost, fetchComments, parseBlocks } from '@/lib/community';
 import { CategoryBadge } from '@/components/lounge/CategoryBadge';
 import { BingoGrid } from '@/components/lounge/BingoGrid';
@@ -208,22 +208,10 @@ export default async function PostDetailPage({ params }: Props) {
       <div className="w-full flex justify-center">
         <div className="w-full max-w-lg bg-white min-h-screen border-x border-gray-100">
 
-          {/* 헤더 + 브레드크럼 */}
-          <nav aria-label="breadcrumb" className="flex items-center gap-2 px-5 py-3 border-b border-gray-100 text-xs text-[#929898]">
-            <Link href="/" className="hover:text-[#28C8DE] transition-colors">빙킷</Link>
-            <span>›</span>
-            <Link href="/lounge" className="hover:text-[#28C8DE] transition-colors">라운지</Link>
-            <span>›</span>
-            <span className="text-[#4C5252] truncate max-w-[160px]">{post.title}</span>
-          </nav>
+          <LoungeHeader />
 
-          {/* 카테고리 배지 + 뒤로 */}
+          {/* 카테고리 배지 */}
           <div className="flex items-center gap-3 px-5 py-3 border-b border-gray-100">
-            <Link href="/lounge" className="p-1 -ml-1 rounded-full hover:bg-gray-100 transition-colors" aria-label="라운지로 돌아가기">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4C5252" strokeWidth="2">
-                <polyline points="15 18 9 12 15 6"/>
-              </svg>
-            </Link>
             <CategoryBadge category={post.category} />
           </div>
 

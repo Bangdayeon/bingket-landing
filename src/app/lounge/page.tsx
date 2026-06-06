@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { LoungeClient } from './LoungeClient';
+import LoungeHeader from '@/components/LoungeHeader';
 
 const BASE_URL = 'https://bingket-landing.vercel.app';
 
@@ -61,10 +62,7 @@ export default function LoungePage() {
 
       <div className="w-full flex justify-center">
         <div className="w-full max-w-lg bg-white min-h-screen border-x border-gray-100">
-          <header className="px-5 py-4 border-b border-gray-100">
-            <h1 className="text-xl font-bold text-[#181C1C]">라운지</h1>
-            <p className="text-sm text-[#929898] mt-0.5">빙킷 유저들의 이야기를 구경해보세요</p>
-          </header>
+          <LoungeHeader />
 
           <Suspense>
             <LoungeClient />

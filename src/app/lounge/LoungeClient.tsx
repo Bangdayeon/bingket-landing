@@ -125,11 +125,16 @@ export function LoungeClient() {
             <p className="text-sm">아직 게시글이 없어요</p>
           </div>
         ) : (
-          <div className="flex flex-col divide-y divide-gray-100">
-            {posts.map((post, i) => (
-              <PostCard key={post.id} post={post} priority={i < PRIORITY_COUNT} />
-            ))}
-          </div>
+          <>
+            <div className="flex flex-col divide-y divide-gray-100">
+              {posts.map((post, i) => (
+                <PostCard key={post.id} post={post} priority={i < PRIORITY_COUNT} />
+              ))}
+            </div>
+            {!hasMore && (
+              <p className="text-center text-xs text-[#B4BBBB] py-6">모든 게시글을 불러왔어요</p>
+            )}
+          </>
         )}
       </div>
 
@@ -140,10 +145,6 @@ export function LoungeClient() {
         <div className="flex justify-center py-5">
           <div className="w-5 h-5 border-2 border-[#28C8DE] border-t-transparent rounded-full animate-spin" />
         </div>
-      )}
-
-      {!loading && !hasMore && posts.length > 0 && (
-        <p className="text-center text-xs text-[#B4BBBB] py-6">모든 게시글을 불러왔어요</p>
       )}
     </div>
   );
