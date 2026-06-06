@@ -48,7 +48,7 @@ export const PostCard = memo(function PostCard({ post, priority = false }: PostC
         href={`/lounge/${post.id}`}
         prefetch={priority}
         aria-label={post.title}
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-[1]"
       />
 
       {/* 작성자 */}
